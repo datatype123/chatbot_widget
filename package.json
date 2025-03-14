@@ -11,10 +11,10 @@
     "web-vitals": "^3.0.4"
   },
   "scripts": {
-    "start": "npm run-script start",
-    "build": "npm run-script build",
-    "test": "npm run-script test",
-    "eject": "npm run-script eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test", 
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
