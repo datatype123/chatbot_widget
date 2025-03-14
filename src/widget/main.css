@@ -1,0 +1,358 @@
+.WidgetChatbot {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* padding: 24px; */
+    /* padding: 10px; */
+    background-color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget_header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    /* padding: 10px; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #4361EE;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    color: white;
+}
+
+.iconHeader {
+    padding: 30px;
+}
+
+.iconHeader img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.widget_header .left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.widget_header .title_container {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget_header .title_container h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.widget_header .status_container {
+    width: 100%;
+    height: 20px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.widget_header .status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.widget_header .status.on {
+    background-color: rgb(6, 249, 2);
+   
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.widget_header .status.off {
+    background-color: grey;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(6, 249, 2, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(6, 249, 2, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(6, 249, 2, 0);
+    }
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.menu-btn,
+.status-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.status-btn {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.status-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.message_container {
+    width: 100%;
+    height: calc(100% - 180px); /* Trừ đi chiều cao của header và input */
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    /* padding: 10px; */
+}
+
+.message-bubble {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 35px;
+    position: relative;
+    /* left: 30px; */
+}
+
+.addition_message {
+    width: 20px;
+    height: 20px;
+    background-color: #302f2f;
+    border-bottom-right-radius: 30px;
+
+}
+
+
+
+.bubble-content.bot {
+    position: relative;
+    background-color: #6b46c1;
+    color: white;
+    border-radius: 40px;
+    padding: 20px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    left: 30px;
+    align-self: flex-start;
+    align-items: flex-start;
+    justify-content:flex-start;
+    word-wrap: break-word;
+}
+
+.bubble-content.user {
+    position: relative;
+    background-color: #dfdfdf;
+    align-self: flex-end;
+    border-radius: 40px;
+    padding: 20px;
+    width: 80%;
+    height: auto;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-wrap: break-word;
+}
+
+.reaction-buttons {
+    background-color: rgb(197, 197, 197);
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    right: 10%;
+    top:80%;
+    transform: translateY(-50%);
+    align-self: auto;
+    border-radius: 10px;
+}
+
+.reaction-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #6b46c1;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.reaction-btn:hover {
+    background-color: #e9e9eb;
+}
+
+.message_input {
+    width: 100%;
+    min-height: 90px;
+    background-color: white;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 10px; */
+    position: relative;
+    bottom: 0;
+}
+
+.message_input .suggest_container {
+    overflow-x: auto;
+    display: flex;
+    gap: 15px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.suggest_btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.suggest_btn:hover {
+    background-color: #f0f0f0;
+}
+
+.suggest_btn p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.input_btn {
+    background: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.input_btn:hover {
+    background-color: #f5f5f5;
+    border-color: #d0d0d0;
+}
+
+.message_input input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.message_input input[type="text"]:focus {
+    border-color: #6b46c1;
+}
+
+.message_input .input_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 98%;
+}
+
+.send_btn {
+    background-color: #6b46c1;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.send_btn:hover {
+    background-color: #553c9a;
+}
+
+.message_time {
+    position: relative;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    width: 10%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.message_time.bot {
+    position: relative;
+    justify-content: flex-start;
+    align-self: flex-start;
+    background-color: transparent;
+    left: 30px;
+}
+
+.message_time.user {
+    position: relative;
+    justify-content: flex-end;
+    align-self: flex-end;
+    background-color: transparent;
+    padding-right: 20px;
+    right: 30px;
+}
+
+.message_time p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.sent-status {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.check-icon {
+    font-size: 14px;
+    color: #6b46c1;
+}
+
+.check-icon:last-child {
+    margin-left: -8px;
+}
+
