@@ -17,7 +17,6 @@ const MessageInput = () => {
       const newMessage = {
         content: inputValue.trim(),
         sender_type: "user" as const,
-        // timestamp: new Date().toISOString(),
       };
       dispatch(addMessage({ message: newMessage }));
 
